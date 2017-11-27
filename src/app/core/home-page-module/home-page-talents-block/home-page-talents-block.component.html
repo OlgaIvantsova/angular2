@@ -1,0 +1,17 @@
+<div class="parallax-team parallaxBg">
+    <div class="container content">
+        <div class="title-box-v2">
+            <h2>Build Your <span class="color-green">Own</span> Talents</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <div class="row">
+            <!-- Team v2 -->
+            <div class="col-md-3 col-sm-6" *ngFor="let employee of employees | slice:0:4">
+                <home-page-talent [employee]="employee"></home-page-talent>
+            </div>
+            <!-- End Team v2 -->
+
+        </div>
+    </div>
+</div>

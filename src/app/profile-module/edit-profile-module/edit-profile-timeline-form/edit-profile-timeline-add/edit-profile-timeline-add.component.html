@@ -1,0 +1,108 @@
+<form class="sky-form" [formGroup]="addForm" (ngSubmit)="onSubmit(addForm)">
+    <header>Add new record</header>
+
+    <fieldset>
+        <div class="row">
+            <section class="col col-6">
+                <label class="label">Position/Qualification</label>
+                <label class="input">
+                    <i class="icon-prepend fa fa-user"></i>
+                    <input type="text" placeholder="Position/Qualification" formControlName="title"
+                           (input)="cancelValidation(addForm, 'title')">
+                </label>
+                <div class="note note-success"
+                     *ngIf="addForm.get('title').hasError('required') && addForm.get('title').touched">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="addForm.get('title').hasError('minlength') && addForm.get('title').touched">
+                    <span>Minimum of 2 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="addForm.get('title').hasError('maxlength') && addForm.get('title').touched">
+                    <span>Maximum of 32 characters</span>
+                </div>
+            </section>
+            <section class="col col-6">
+                <label class="label">Enterprise/University</label>
+                <label class="input">
+                    <i class="icon-prepend fa fa-user"></i>
+                    <input type="text" placeholder="Enterprise/University" formControlName="organization"
+                           (input)="cancelValidation(addForm, 'organization')">
+                </label>
+                <div class="note note-success"
+                     *ngIf="addForm.get('organization').hasError('required') && addForm.get('organization').touched">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="addForm.get('organization').hasError('minlength') && addForm.get('organization').touched">
+                    <span>Minimum of 2 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="addForm.get('organization').hasError('maxlength') && addForm.get('organization').touched">
+                    <span>Maximum of 32 characters</span>
+                </div>
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-6">
+                <label class="label">Start time</label>
+                <label class="select">
+                    <select formControlName="startYear">
+                        <option *ngFor="let year of yearsArr" [ngValue]="year">{{year}}</option>
+                    </select>
+                    <i></i>
+                </label>
+                <div class="note note-success"
+                     *ngIf="addForm.get('startYear').hasError('required') && addForm.get('startYear').touched">
+                    <span>The field is required</span>
+                </div>
+            </section>
+
+            <section class="col col-6">
+                <label class="label">End time</label>
+                <label class="select">
+                    <select formControlName="endYear" (input)="cancelValidation(addForm, 'endYear')">
+                        <option *ngFor="let year of yearsArr" [ngValue]="year">{{year}}</option>
+                        <option value="Infinity">current</option>
+                    </select>
+                    <i></i>
+                </label>
+                <div class="note note-success"
+                     *ngIf="addForm.get('endYear').hasError('required') && addForm.get('startYear').touched">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="addForm.hasError('endYearIsLess') && addForm.get('endYear').touched">
+                    <span>The end time can not be less than the start time</span>
+                </div>
+            </section>
+        </div>
+
+        <section>
+            <label class="label">Description</label>
+            <label class="textarea">
+                <textarea rows="3" name="info" placeholder="Additional info" formControlName="description"
+                          (input)="cancelValidation(addForm, 'description')"></textarea>
+            </label>
+            <div class="note note-success"
+                 *ngIf="addForm.get('description').hasError('required') && addForm.get('description').touched">
+                <span>The field is required</span>
+            </div>
+            <div class="note note-success"
+                 *ngIf="addForm.get('description').hasError('minlength') && addForm.get('description').touched">
+                <span>Minimum of 2 characters</span>
+            </div>
+            <div class="note note-success"
+                 *ngIf="addForm.get('description').hasError('maxlength') && addForm.get('description').touched">
+                <span>Maximum of 32 characters</span>
+            </div>
+        </section>
+
+        <footer>
+            <button type="button" class="btn-u" (click)="cancel()">Cancel</button>
+            <button type="submit" class="btn-u btn-u-default" [disabled]="!addForm.dirty">Submit</button>
+        </footer>
+
+    </fieldset>
+</form>

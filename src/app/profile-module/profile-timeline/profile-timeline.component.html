@@ -1,0 +1,27 @@
+<div class="panel panel-profile">
+    <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-briefcase"></i> Experience</h2>
+        <a (click)="edit('works')" ><i class="fa fa-cog pull-right"></i></a>
+    </div>
+    <div class="panel-body margin-bottom-40">
+        <ul class="timeline-v2 timeline-me">
+            <li *ngFor="let work of works">
+                <profile-timeline-item [item]="work"></profile-timeline-item>
+            </li>
+        </ul>
+    </div>
+</div>
+<hr>
+<div class="panel panel-profile">
+    <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-mortar-board"></i> Education</h2>
+        <a (click)="edit('educations')"><i class="fa fa-cog pull-right"></i></a>
+    </div>
+    <div class="panel-body">
+        <ul class="timeline-v2 timeline-me">
+            <li *ngFor="let education of educations">
+                <profile-timeline-item [item]="education"></profile-timeline-item>
+            </li>
+        </ul>
+    </div>
+</div>

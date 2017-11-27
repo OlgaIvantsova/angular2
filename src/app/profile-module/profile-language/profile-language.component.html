@@ -1,0 +1,19 @@
+<div class="p-chart col-sm-6 col-xs-6 sm-margin-bottom-10">
+    <div class="margin-bottom-20 circle-wrap">
+        <svg height="75" width="75">
+            <circle cx="37" cy="37" r="35" stroke-width="2" fill="transparent"
+                [attr.stroke-dasharray]="circumference">
+                <animate attributeName="stroke-dashoffset" attributeType="CSS"
+                         [attr.from]="circumference" [attr.to]="emptyLength"
+                         begin="0s" dur="4s"/>
+                <set attributeName="stroke-dasharray" attributeType="XML"
+                     [attr.to]="circleLength"
+                     begin="4s" />
+            </circle>
+        </svg>
+        <div class="circles-text-wrap">
+            <span>{{level}}%</span>
+        </div>
+        <h4>{{language.title | capitalize}}</h4>
+    </div>
+</div>

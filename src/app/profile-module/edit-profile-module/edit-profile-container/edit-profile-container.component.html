@@ -1,0 +1,24 @@
+<div class="tab-v1 margin-bottom-60">
+    <ul class="nav nav-tabs">
+        <li *ngFor="let tab of tabs" [ngClass]="{active: tab.idProp === categoryToEdit}">
+            <a (click)="setCategoryToEdit(tab.idProp)" data-toggle="tab" aria-expanded="true">{{tab.displayedTitle | capitalize}}</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <edit-profile-general-form *ngIf="categoryToEdit === 'general'" [employee]="employee"
+            (onCancel)="cancel($event)" (onSave)="onSave($event)" (employeeToUpdate)="onSave($event)"></edit-profile-general-form>
+        <edit-profile-levels-form *ngIf="categoryToEdit === 'tools'" [employee]="employee" [tabName]="categoryToEdit"
+            (onCancel)="cancel($event)" (onSave)="onSave($event)" (employeeToUpdate)="onSave($event)"></edit-profile-levels-form>
+        <edit-profile-levels-form *ngIf="categoryToEdit === 'languages'" [employee]="employee" [tabName]="categoryToEdit"
+            (onCancel)="cancel($event)" (onSave)="onSave($event)" (employeeToUpdate)="onSave($event)"></edit-profile-levels-form>
+        <edit-profile-timeline-form *ngIf="categoryToEdit === 'educations'" [employee]="employee" [tabName]="categoryToEdit"
+            (onCancel)="cancel($event)" (onSave)="onSave($event)" (employeeToUpdate)="onSave($event)"></edit-profile-timeline-form>
+        <edit-profile-timeline-form *ngIf="categoryToEdit === 'works'" [employee]="employee" [tabName]="categoryToEdit"
+            (onCancel)="cancel($event)" (onSave)="onSave($event)" (employeeToUpdate)="onSave($event)"></edit-profile-timeline-form>
+        <edit-profile-direction-form *ngIf="categoryToEdit === 'directions'" [employee]="employee" [tabName]="categoryToEdit"
+            (onCancel)="cancel($event)" (onSave)="onSave($event)" (employeeToUpdate)="onSave($event)"></edit-profile-direction-form>
+        <edit-profile-projects-form *ngIf="categoryToEdit === 'projects'" [employee]="employee" [tabName]="categoryToEdit"
+            (onCancel)="cancel($event)" (onSave)="onSave($event)" (employeeToUpdate)="onSave($event)"></edit-profile-projects-form>
+    </div>
+</div>

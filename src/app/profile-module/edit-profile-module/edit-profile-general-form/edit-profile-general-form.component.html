@@ -1,0 +1,51 @@
+    <div class="tab-panel fade active in" id="home-1">
+        <form class="sky-form" [formGroup]="group" (ngSubmit)="onSubmit(group)">
+            <header>Information</header>
+
+            <fieldset>
+                <section *ngFor="let textField of textFields">
+                    <label class="label">{{textField | capitalize}}</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-user"></i>
+                        <input (input)="cancelValidation(textField)" type="text" placeholder="Placeholder text" formControlName="{{textField}}">
+                    </label>
+                    <div class="note note-success"
+                         *ngIf="group.get(textField).hasError('required') && group.get(textField).touched">
+                        <span>The field is required</span>
+                    </div>
+                    <div class="note note-success"
+                         *ngIf="group.get(textField).hasError('minlength') && group.get(textField).touched">
+                        <span>Minimum of 2 characters</span>
+                    </div>
+                    <div class="note note-success"
+                         *ngIf="group.get(textField).hasError('maxlength') && group.get(textField).touched">
+                        <span>Maximum of 32 characters</span>
+                    </div>
+                    <div class="note note-success"
+                         *ngIf="group.get(textField).hasError('pattern') && group.get(textField).touched">
+                        <span>Letters and apostrophe are allowed</span>
+                    </div>
+                </section>
+                <section>
+                    <label class="label">Department</label>
+                    <label class="select">
+                        <select formControlName="departmentTitle" [ngModel]="data.departmentTitle">
+                              <option *ngFor="let department of departments" [ngValue]="department.title"
+                                    [selected]="data.departmentTitle === department.title">{{department.title}}</option>
+                        </select>
+                        <i></i>
+                    </label>
+                    <div class="note note-success"
+                         *ngIf="group.get('departmentTitle').hasError('required') && group.get('departmentTitle').touched">
+                        <span>The field is required</span>
+                    </div>
+                </section>
+            </fieldset>
+
+            <footer>
+                <button type="button" class="btn-u" (click)="cancel()">Cancel</button>
+                <button type="submit" class="btn-u btn-u-default" [disabled]="!group.dirty">Submit</button>
+                        <!--[disabled]="group.invalid || !group.dirty"-->
+            </footer>
+        </form>
+    </div>

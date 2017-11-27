@@ -1,0 +1,99 @@
+<!--<div *ngIf="selectFields.length">-->
+    <form class="sky-form" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <header>Information</header>
+
+        <fieldset *ngFor="let selectField of selectFields" formGroupName="{{selectField.title}}">
+            <section class="col col-5">
+                <label class="label">Title</label>
+                <label class="input">
+                    <i class="icon-prepend fa fa-user"></i>
+                    <input type="text" placeholder="Placeholder text"
+                           (input)="cancelValidation(form, selectField.title)" formControlName="title">
+                </label>
+                <div class="note note-success"
+                     *ngIf="form.get(selectField.title).get('title').hasError('required')
+                     && form.get(selectField.title).get('title').touched">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(selectField.title).get('title').hasError('minlength')
+                     && form.get(selectField.title).get('title').touched">
+                    <span>Minimum of 2 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(selectField.title).get('title').hasError('maxlength')
+                     && form.get(selectField.title).get('title').touched">
+                    <span>Maximum of 32 characters</span>
+                </div>
+            </section>
+            <section class="col col-5">
+                <label class="label">Level</label>
+                <label class="select">
+                    <select formControlName="level" [ngModel]="selectField.level">
+                        <option *ngFor="let level of levels" [ngValue]="level"
+                                [selected]="selectField.level === level">{{level}}</option>
+                    </select>
+                    <i></i>
+                </label>
+            </section>
+            <div class="col-1 pull-right margin-top-30" (click)="remove(selectField)">
+                <i class="icon-custom icon-sm rounded-2x icon-color-u fa fa-trash-o"></i>
+            </div>
+            <div class="clearfix"></div>
+        </fieldset>
+
+        <footer>
+            <button type="button" class="btn-u" (click)="cancel()">Cancel</button>
+            <button type="submit" class="btn-u btn-u-default" [disabled]="!form.dirty">Submit</button>
+                    <!--[disabled]="form.invalid || !form.dirty">Submit</button>-->
+        </footer>
+    </form>
+    <form class="sky-form" [formGroup]="addForm" (ngSubmit)="add(addForm)">
+        <fieldset>
+            <section class="col col-5">
+                <label class="label">Title</label>
+                <label class="input">
+                    <i class="icon-prepend fa fa-user"></i>
+                    <input (input)="cancelValidation(addForm, 'title')"
+                           type="text" placeholder="Add new item" formControlName="title">
+                </label>
+                <div class="note note-success"
+                     *ngIf="addForm.get('title').hasError('required') && addForm.get('level').value">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="addForm.get('title').hasError('minlength') && addForm.get('title').touched">
+                    <span>Minimum of 2 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="addForm.get('title').hasError('maxlength') && addForm.get('title').touched">
+                    <span>Maximum of 32 characters</span>
+                </div>
+            </section>
+
+            <section class="col col-5">
+                <label class="label">Level</label>
+                <label class="select">
+                    <select formControlName="level" (input)="cancelValidation(addForm, 'level')">
+                        <option *ngFor="let level of levels" [ngValue]="level">{{level}}</option>
+                    </select>
+                    <i></i>
+                </label>
+                <div class="note note-success"
+                     *ngIf="addForm.get('level').hasError('required') && addForm.get('level').touched">
+                    <span>The field is required</span>
+                </div>
+                <!--<div class="note note-success"-->
+                     <!--*ngIf="addForm.get('title').value && addForm.get('level').hasError('required')">-->
+                    <!--<span>The field is required</span>-->
+                <!--</div>-->
+            </section>
+
+
+            <div class="col pull-right add-form-btn">
+                <button type="submit" class="btn-u" [disabled]="!addForm.dirty">Add</button>
+                        <!--[disabled]="addForm.invalid || !addForm.dirty">Add</button>-->
+            </div>
+        </fieldset>
+    </form>
+<!--</div>-->

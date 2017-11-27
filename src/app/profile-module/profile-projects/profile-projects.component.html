@@ -1,0 +1,28 @@
+<div class="panel panel-profile">
+    <div class="panel-heading overflow-h">
+        <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i>Projects</h2>
+        <a (click)="edit('projects')"><i class="fa fa-cog pull-right"></i></a>
+    </div>
+    <div id="scrollbar" class="mCustomScrollbar _mCS_2 mCS-autoHide" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
+        <!--<div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0">-->
+            <!--<div id="mCSB_2_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;" dir="ltr">-->
+                <div *ngFor="let project of projects" class="profile-post">
+                    <span class="profile-post-numb">{{projects.indexOf(project)+1}}</span>
+                    <div class="profile-post-in">
+                        <h3 class="heading-xs">{{project.title | capitalize}}</h3>
+                        <p>{{project.description}}</p>
+                    </div>
+                </div>
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: block;">-->
+            <!--<div class="mCSB_draggerContainer"><div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; display: block; height: 160px; max-height: 286px; top: 0px;" oncontextmenu="return false;">-->
+                <!--<div class="mCSB_dragger_bar" style="line-height: 50px;">-->
+                <!---->
+            <!--</div>-->
+            <!--</div>-->
+                <!--<div class="mCSB_draggerRail"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>

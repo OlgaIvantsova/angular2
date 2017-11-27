@@ -1,0 +1,34 @@
+<div class="headline"><h2>Categories</h2></div>
+<div class="row job-content margin-bottom-40">
+    <div class="col-md-3 col-sm-3 md-margin-bottom-40">
+        <h3 class="heading-md"><strong>Departments</strong></h3>
+        <ul class="list-unstyled categories">
+            <li *ngFor="let department of departments | slice:0:5">
+                <home-page-category-item [category]="'department'" [item]="department"></home-page-category-item>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-3 col-sm-3 md-margin-bottom-40">
+        <h3 class="heading-md"><strong>Tools & Frameworks</strong></h3>
+        <ul class="list-unstyled categories">
+            <li *ngFor="let tool of tools | slice:0:5">
+                <home-page-category-item [category]="'tools'" [item]="tool"></home-page-category-item>
+            </ul>
+    </div>
+    <div class="col-md-3 col-sm-3 md-margin-bottom-40">
+        <h3 class="heading-md"><strong>Development Directions</strong></h3>
+        <ul class="list-unstyled categories">
+            <li *ngFor="let direction of directions | slice:0:5" >
+                <home-page-category-item [category]="'directions'" [item]="direction"></home-page-category-item>
+
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <h3 class="heading-md"><strong>Languages</strong></h3>
+        <ul class="list-unstyled categories">
+            <li *ngFor="let language of languages | slice:0:4">
+                <home-page-category-item [category]="'languages'" [item]="language"></home-page-category-item>
+        </ul>
+    </div>
+</div>

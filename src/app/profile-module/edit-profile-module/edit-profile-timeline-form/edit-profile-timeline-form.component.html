@@ -1,0 +1,158 @@
+<form class="sky-form" [formGroup]="form" (ngSubmit)="onSubmit(form)" *ngIf="!isAddFormOpen">
+    <header>Information</header>
+
+    <fieldset *ngFor="let fieldSet of fieldSets" formGroupName="{{fieldSet.organization}}">
+        <div class="row">
+            <button type="button" class="close" aria-hidden="true"
+                    (click)="remove(fieldSet)">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+        <div class="row">
+            <section class="col col-6">
+                <label class="label">Position/Qualification</label>
+                <label class="input">
+                    <i class="icon-prepend fa fa-user"></i>
+                    <input type="text" placeholder="Position/Qualification"
+                           (input)="cancelValidation(form.get(fieldSet.organization), 'title')" formControlName="title">
+                </label>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('title').hasError('required')
+                        && form.get(fieldSet.organization).get('title').touched">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('title').hasError('minlength')
+                        && form.get(fieldSet.organization).get('title').touched">
+                    <span>Minimum of 2 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('title').hasError('maxlength')
+                        && form.get(fieldSet.organization).get('title').touched">
+                    <span>Maximum of 32 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('title').hasError('pattern')
+                        && form.get(fieldSet.organization).get('title').touched">
+                    <span>Letters and apostrophe are allowed</span>
+                </div>
+
+            </section>
+
+            <section class="col col-6">
+                <label class="label">Enterprise/University</label>
+                <label class="input">
+                    <i class="icon-prepend fa fa-user"></i>
+                    <input type="text" placeholder="Enterprise/University"
+                           (input)="cancelValidation(form.get(fieldSet.organization), 'organization')"
+                           formControlName="organization">
+                </label>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('organization').hasError('required')
+                        && form.get(fieldSet.organization).get('organization').touched">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('organization').hasError('minlength')
+                        && form.get(fieldSet.organization).get('organization').touched">
+                    <span>Minimum of 2 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('organization').hasError('maxlength')
+                        && form.get(fieldSet.organization).get('organization').touched">
+                    <span>Maximum of 32 characters</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('organization').hasError('pattern')
+                        && form.get(fieldSet.organization).get('organization').touched">
+                    <span>Letters, ampersand and apostrophe are allowed</span>
+                </div>
+            </section>
+
+        </div>
+        <div class="row">
+            <section class="col col-6">
+                <label class="label">Start time</label>
+                <label class="select">
+                    <select formControlName="startYear" [ngModel]="fieldSet.startYear">
+                        <option *ngFor="let year of yearsArr" [ngValue]="year"
+                                [selected]="fieldSet.startYear === year">{{year}}</option>
+                    </select>
+                    <i></i>
+                </label>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('startYear').hasError('required')
+                        && form.get(fieldSet.organization).get('startYear').touched">
+                    <span>The field is required</span>
+                </div>
+            </section>
+
+            <section class="col col-6">
+                <label class="label">End time</label>
+                <label class="select">
+                    <select formControlName="endYear" [ngModel]="fieldSet.endYear"
+                            (input)="cancelValidation(form.get(fieldSet.organization), 'endYear')">
+                        <option *ngFor="let year of yearsArr" [ngValue]="year"
+                                [selected]="fieldSet.endYear === year">{{year}}</option>
+                        <option value="Infinity"
+                                [selected]="fieldSet.endYear === 'Infinity'">current</option>
+                    </select>
+                    <i></i>
+                </label>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).get('endYear').hasError('required')
+                        && form.get(fieldSet.organization).get('endYear').touched">
+                    <span>The field is required</span>
+                </div>
+                <div class="note note-success"
+                     *ngIf="form.get(fieldSet.organization).hasError('endYearIsLess')">
+                    <span>The end time can not be less than the start time</span>
+                </div>
+            </section>
+
+        </div>
+
+        <section>
+            <label class="label">Description</label>
+            <label class="textarea">
+                <textarea rows="3" name="info" placeholder="Additional info"
+                          (input)="cancelValidation(form.get(fieldSet.organization), 'description')"
+                          formControlName="description"></textarea>
+            </label>
+            <div class="note note-success"
+                 *ngIf="form.get(fieldSet.organization).get('description').hasError('required')
+                    && form.get(fieldSet.organization).get('description').touched">
+                <span>The field is required</span>
+            </div>
+            <div class="note note-success"
+                 *ngIf="form.get(fieldSet.organization).get('description').hasError('minlength')
+                    && form.get(fieldSet.organization).get('description').touched">
+                <span>Minimum of 2 characters</span>
+            </div>
+            <div class="note note-success"
+                 *ngIf="form.get(fieldSet.organization).get('description').hasError('maxlength')
+                    && form.get(fieldSet.organization).get('description').touched">
+                <span>Maximum of 500 characters</span>
+            </div>
+        </section>
+
+    </fieldset>
+
+    <fieldset>
+        <div class="row">
+            <div class="pull-right col">
+                <button type="button" class="btn-u btn-u-light-green margin-bottom-20"
+                        (click)="openAddForm()">Add new record</button>
+            </div>
+        </div>
+    </fieldset>
+
+    <footer>
+        <button type="button" class="btn-u" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn-u btn-u-default" [disabled]="!form.dirty">Submit</button>
+    </footer>
+</form>
+
+<edit-profile-timeline-add *ngIf="isAddFormOpen" (closeAddForm)="closeAddForm($event)"
+    (addRecord)="addRecord($event)"></edit-profile-timeline-add>
+

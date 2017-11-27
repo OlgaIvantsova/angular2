@@ -1,0 +1,1 @@
+export enum LanguageLevel { elementary = 20, preIntermediate = 40, intermediate = 60, upperIntermediate = 80, advanced = 100 }

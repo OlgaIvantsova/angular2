@@ -1,0 +1,14 @@
+<div class="profile-blog">
+    <img class="rounded-x" [src]="employee.foto" alt="Foto">
+    <div class="name-location">
+        <strong>{{employee.name}} {{employee.surname}}</strong>
+        <span><i class="fa fa-map-marker"></i>Kharkiv, UA</span>
+    </div>
+    <div class="clearfix margin-bottom-20"></div>
+    <strong>Department:</strong><span> {{department | uppercase}}</span>
+    <hr>
+    <ul class="list-inline share-list">
+        <li><i class="fa fa-bell"></i>{{employee.projectIds.length}} Projects</li>
+        <li><i class="fa fa-share"></i><a [routerLink]="['/profile', employee.id]">View Profile</a></li>
+    </ul>
+</div>

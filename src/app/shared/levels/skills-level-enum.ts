@@ -1,0 +1,1 @@
+export enum SkillLevel { familiar = 25, basic = 50, advanced = 75, professional = 100 }

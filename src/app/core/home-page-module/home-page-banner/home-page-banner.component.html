@@ -1,0 +1,41 @@
+<div class="job-img margin-bottom-30">
+    <div class="job-banner">
+        <h2>Discover the Company ...</h2>
+    </div>
+    <div class="job-img-inputs">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 md-margin-bottom-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                        <input type="text" placeholder="enter the name of the employee"
+                               class="form-control" name="name"
+                               #nameBox [(ngModel)]="modelName" #name="ngModel"
+                               maxlength="15"
+                               pattern="[A-Za-z`]{2,}\s?[A-Za-z`]{2,}?">
+                    </div>
+                    <div class="note note-error animated fadeInDown" [hidden]="name.pristine || name.valid">
+                        The field must contain at most 2 words, special symbols are not allowed
+                    </div>
+                </div>
+                <div class="col-sm-4 md-margin-bottom-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                        <input type="text" placeholder="enter the used tools or languages"
+                               #toolsBox maxlength="30" class="form-control" name="tool"
+                               [(ngModel)]="modelTool" #tool="ngModel"
+                               pattern="([A-Za-z0-9`]{3,}\s?)+">
+                    </div>
+                    <div class="note note-error animated fadeInDown" [hidden]="tool.pristine || tool.valid">
+                        Words must contain at least 3 symbols. Special symbols are not allowed
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn-u btn-block btn-u-dark"
+                        (click)="onSearch(nameBox.value, toolsBox.value)"
+                        [disabled]="(name.pristine && tool.pristine) || !name.valid || !tool.valid"> Search </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

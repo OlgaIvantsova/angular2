@@ -1,0 +1,11 @@
+<div *ngIf="item">
+    <time datetime="" class="cbp_tmtime">
+        <span>{{item.position || item.qualification | capitalize}}</span>
+        <span>{{item.startYear}} - {{endYear}}</span>
+    </time>
+    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+    <div class="cbp_tmlabel">
+        <h2>{{item.enterprise || item.university}}</h2>
+        <p>{{item.description}}</p>
+    </div>
+</div>

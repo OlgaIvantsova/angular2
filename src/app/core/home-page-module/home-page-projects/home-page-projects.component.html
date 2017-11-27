@@ -1,0 +1,96 @@
+<div class="headline margin-bottom-35"><h2>Projects</h2></div>
+<div class="row high-rated">
+    <div class="col-md-3 col-sm-6 md-margin-bottom-40 project"
+        *ngFor="let project of randomizedProjects | slice:0:4">
+        <div class="easy-block-v1">
+            <div class="easy-block-v1-badge project-label">Project</div>
+            <div id="carousel-example-generic-2" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li class="rounded-x active" data-target="#carousel-example-generic-2" data-slide-to="0"></li>
+                    <li class="rounded-x" data-target="#carousel-example-generic-2" data-slide-to="1"></li>
+                    <li class="rounded-x" data-target="#carousel-example-generic-2" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img alt="" src="img/main/img12.jpg">
+                    </div>
+                    <div class="item">
+                        <img alt="" src="img/main/img10.jpg">
+                    </div>
+                    <div class="item">
+                        <img alt="" src="img/main/img21.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="overflow-h">
+                <h3>{{project.title | capitalize}}</h3>
+                <div class="star-vote pull-right">
+                    <ul class="list-inline">
+                        <!--<li>-->
+                            <!--<i class="color-green fa fa-star"></i>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<i class="color-green fa fa-star"></i>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<i class="color-green fa fa-star"></i>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<i class="color-green fa fa-star"></i>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<i class="color-green fa fa-star"></i>-->
+                        <!--</li>-->
+                        <li *ngFor="let i of getRatesArray(project.rate)">
+                            <i class="color-green fa fa-star"></i>
+                        </li>
+                        <i class="color-green fa fa-star-half-o"
+                           *ngIf="project.rate == 3"></i>
+                        <i class="color-green fa fa-star-o"
+                           *ngIf="project.rate < 5"></i>
+                        <!--<li *ngFor="let i of getRatesArray(tool)">-->
+                            <!--<i class="color-green fa fa-star"></i>-->
+                        <!--</li>-->
+                        <!--<i class="color-green fa fa-star-half-o"-->
+                            <!--*ngIf="tools.indexOf(tool) > 0 && tools.indexOf(tool) < 3"></i>-->
+                        <!--<i class="color-green fa fa-star-o"-->
+                            <!--*ngIf="tools.indexOf(tool) == 3"></i>-->
+                    </ul>
+                </div>
+            </div>
+            <ul class="list-unstyled">
+                <li><span class="color-green">Involved employees:</span> {{project.employeesAmount}} </li>
+                <li>
+                    <span class="color-green">Technologies:</span>
+                    <span *ngFor="let tool of project.tools | slice:0:4"> {{ tool| capitalize}} </span>
+                </li>
+            </ul>
+            <a class="btn-u btn-u-sm" [routerLink]="['/employees', 'projects?'+project.title]">View More</a>
+        </div>
+    </div>
+    <div class="clearfix margin-bottom-20"></div>
+</div>
+<div class="clearfix margin-bottom-20"><hr></div>
+<div class="row">
+    <!-- Begin Easy Block -->
+    <div class="col-md-3 col-sm-6 md-margin-bottom-40 project"
+        *ngFor="let project of projects | slice:0:4">
+        <div class="easy-block-v2">
+            <div class="easy-bg-v2 project-label">New</div>
+            <img alt="" src="img/main/img26.jpg">
+            <div class="overflow-h">
+                <h3>{{project.title | capitalize}}</h3>
+            </div>
+            <ul class="list-unstyled">
+                <li><span class="color-green">Involved employees:</span> {{project.employeesAmount}} </li>
+                <li>
+                    <span class="color-green">Technologies:</span>
+                    <span *ngFor="let tool of project.tools | slice:0:4"> {{ tool| capitalize}} </span>
+                </li>
+            </ul>
+            <a class="btn-u btn-u-sm" [routerLink]="['/employees', 'projects?'+project.title]">View More</a>
+        </div>
+    </div>
+    <!-- End Begin Easy Block -->
+
+</div>

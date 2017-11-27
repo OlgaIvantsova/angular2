@@ -1,0 +1,60 @@
+<form *ngIf="projects" class="sky-form" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <header>Information</header>
+
+    <fieldset *ngFor="let project of projects">
+        <section class="col col-8">
+            <label class="label">Title</label>
+            <label class="input">
+                <i class="icon-prepend fa fa-user"></i>
+                <input type="text" placeholder="Placeholder text"
+                       formControlName="{{project.title}}" disabled="true">
+            </label>
+            <div class="note note-success"
+                 *ngIf="form.get(project.title).hasError('required') && form.get(project.title).touched">
+                <span>The field is required</span>
+            </div>
+            <div class="note note-success"
+                 *ngIf="form.get(project.title).hasError('minlength') && form.get(project.title).touched">
+                <span>Minimum of 2 characters</span>
+            </div>
+            <div class="note note-success"
+                 *ngIf="form.get(project.title).hasError('maxlength') && form.get(project.title).touched">
+                <span>Maximum of 32 characters</span>
+            </div>
+        </section>
+
+        <div class="col-1 pull-right margin-top-30" (click)="remove(project)">
+            <i class="icon-custom icon-sm rounded-2x icon-color-u fa fa-trash-o"></i>
+        </div>
+        <div class="clearfix"></div>
+    </fieldset>
+
+    <footer>
+        <button type="button" class="btn-u" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn-u btn-u-default" [disabled]="!form.dirty">Submit</button>
+    </footer>
+</form>
+<form *ngIf="allProjects.length" class="sky-form" [formGroup]="addForm" (ngSubmit)="add(addForm)">
+    <fieldset>
+
+        <section class="col col-8">
+            <label class="label">Choose project</label>
+            <label class="select">
+                <select formControlName="selectTitle" (input)="cancelValidation(addForm, 'selectTitle')">
+                    <option value="" selected>Choose project</option>
+                    <option *ngFor="let item of allProjects" [ngValue]="item.title">{{item.title}}</option>
+                </select>
+                <i></i>
+                <div class="note note-success"
+                     *ngIf="addForm.get('selectTitle').hasError('required') && addForm.get('selectTitle').touched">
+                    <span>The field is required</span>
+                </div>
+            </label>
+        </section>
+
+        <div class="col pull-right add-form-btn">
+            <button type="submit" class="btn-u">Add</button>
+                    <!--[disabled]="!addForm.get('selectTitle').value">Add</button>-->
+        </div>
+    </fieldset>
+</form>

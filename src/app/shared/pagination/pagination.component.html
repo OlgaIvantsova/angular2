@@ -1,0 +1,12 @@
+<div class="margin-bottom-30"></div>
+<div class="text-left">
+    <ul class="pagination">
+        <li><a (click)="setPage(1)">First</a></li>
+        <li><a (click)="setPage(pager.currentPage - 1)"><<</a></li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active: page === pager.currentPage}">
+            <a (click)="setPage(page)">{{page}}</a>
+        </li>
+        <li><a (click)="setPage(pager.currentPage + 1)">>></a></li>
+        <li><a (click)="setPage(pager.totalPages)">Last</a></li>
+    </ul>
+</div>

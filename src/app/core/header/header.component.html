@@ -1,0 +1,148 @@
+<div class="header">
+    <div class="container">
+        <!-- Logo -->
+        <a class="logo" [routerLink]="['/home']">
+            <img src="img/logo1-default.png" alt="Logo">
+        </a>
+        <!-- End Logo -->
+
+         <!--Topbar-->
+        <div class="topbar">
+            <ul class="loginbar pull-right">
+                <li class="hoverSelector"></li>
+                <li><a >Help</a></li>
+                <li class="topbar-devider"></li>
+                <li><a >Login</a></li>
+            </ul>
+        </div>
+         <!--End Topbar-->
+
+        <!-- Toggle get grouped for better mobile display -->
+        <button type="button" class="navbar-toggle" (click)="toggleMenu()"
+                data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+        </button>
+        <!-- End Toggle -->
+    </div><!--/end container-->
+
+    <div class="collapse navbar-collapse navbar-responsive-collapse" *ngIf="showMenu">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <!-- Home -->
+                <li class="dropdown" >
+                    <a [routerLink]="['/']" class="dropdown-toggle" data-toggle="dropdown">
+                        Home
+                    </a>
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li>-->
+                            <!--<a [routerLink]="['/employees', 'all']">Profiles</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                </li>
+                <!-- End Home -->
+
+                <!-- Departments -->
+                <li class="dropdown">
+                    <a (click)="openSubMenu('departments')" class="dropdown-toggle" data-toggle="dropdown">
+                        Departments
+                    </a>
+                    <ul class="dropdown-menu" [ngClass]="{'dropdown-menu-active': curSubMenu==='departments'}">
+                        <li class="dropdown-submenu" *ngFor="let department of departments">
+                            <a [routerLink]="['/employees', 'department?'+department.title]">
+                                {{department.title | uppercase}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a [routerLink]="['/employees', 'department?'+department.title]">Profiles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Departments -->
+
+                <!-- Tools & Frameworks -->
+                <li class="dropdown">
+                    <a (click)="openSubMenu('tools')" class="dropdown-toggle" data-toggle="dropdown">
+                        Tools & Frameworks
+                    </a>
+                    <ul class="dropdown-menu" [ngClass]="{'dropdown-menu-active': curSubMenu==='tools'}">
+                        <li class="dropdown-submenu" *ngFor="let tool of tools">
+                            <a [routerLink]="['/employees', 'tools?'+tool]">
+                                {{tool | uppercase}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a [routerLink]="['/employees', 'tools?'+tool]">Profiles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Tools & Frameworks -->
+
+                <!-- Development directions -->
+                <li class="dropdown">
+                    <a (click)="openSubMenu('directions')" class="dropdown-toggle" data-toggle="dropdown">
+                        Development directions
+                    </a>
+                    <ul class="dropdown-menu" [ngClass]="{'dropdown-menu-active': curSubMenu==='directions'}">
+                        <li class="dropdown-submenu" *ngFor="let direction of directions">
+                            <a [routerLink]="['/employees', 'directions?'+direction]">
+                                {{direction | uppercase}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a [routerLink]="['/employees', 'directions?'+direction]">Profiles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- End Development directions -->
+
+                 <!--Foreign Languages-->
+                <li class="dropdown">
+                    <a (click)="openSubMenu('projects')" class="dropdown-toggle" data-toggle="dropdown">
+                        Projects
+                    </a>
+                    <ul class="dropdown-menu" [ngClass]="{'dropdown-menu-active': curSubMenu==='projects'}">
+                        <li class="dropdown-submenu" *ngFor="let project of projects">
+                            <a [routerLink]="['/employees', 'projects?'+project.title]">
+                                {{project.title | uppercase}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a [routerLink]="['/employees', 'projects?'+project.title]">Profiles</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                 <!--End Foreign Languages -->
+                <!-- Foreign Languages-->
+                <!--<li class="dropdown">-->
+                    <!--<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">-->
+                        <!--Foreign Languages-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li class="dropdown-submenu" *ngFor="let language of languages">-->
+                            <!--<a [routerLink]="['/employees', 'languages?'+language]"-->
+                                <!--&gt;{{language | uppercase}}</a>-->
+                            <!--<ul class="dropdown-menu">-->
+                                <!--<li><a [routerLink]="['/employees', 'languages?'+language]">Profiles</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!-- End Foreign Languages -->
+
+                <!-- Search Block -->
+                <li>
+                    <i class="search fa fa-search search-btn" (click)="showSearchField()"
+                        *ngIf="!isSearching"></i>
+                    <i class="search fa fa-search fa-times" *ngIf="isSearching"
+                        (click)="hideSearchField()"></i>
+                    <div class="search-open"  *ngIf="isSearching">
+                        <div class="input-group animated fadeInDown">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-btn">
+							    <button class="btn-u" type="button">Go</button>
+							</span>
+                        </div>
+                    </div>
+                </li>
+                <!-- End Search Block -->
+            </ul>
+        </div><!--/end container-->
+    </div><!--/navbar-collapse-->
+</div>

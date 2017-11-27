@@ -1,0 +1,54 @@
+/*Timeline*/
+.profile .timeline-v2.timeline-me:before {
+  left: 19%;
+}
+
+.profile .timeline-v2.timeline-me p {
+  margin-bottom: 0;
+}
+
+.profile .timeline-v2.timeline-me > li .cbp_tmtime {
+  width: 27%;
+}
+
+.profile .timeline-v2.timeline-me > li .cbp_tmicon {
+  left: 19%;
+}
+
+.profile .timeline-v2.timeline-me > li .cbp_tmtime span:first-child {
+  color: #585f69;
+  font-size: 16px;
+  text-align: left;
+  line-height: 20px;
+}
+
+.profile .timeline-v2.timeline-me > li .cbp_tmtime span:last-child {
+  color: #999;
+  font-size: 14px;
+  text-align: left;
+}
+
+.profile .timeline-v2.timeline-me > li .cbp_tmlabel {
+  padding: 0;
+  background: inherit;
+  margin: 0 0 20px 23%;
+}
+
+.profile .timeline-v2.timeline-me > li .cbp_tmlabel:after {
+  border-color: inherit;
+}
+
+.profile .timeline-v2.timeline-me > li .cbp_tmlabel h2 {
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 20px;
+  border-bottom: none;
+}
+
+.profile .cbp_tmlabel h2 {
+  color: #555;
+  margin-top: 5px;
+  text-shadow: none;
+  font-weight: normal;
+  font-family: "Open Sans", Arial, sans-serif;
+}

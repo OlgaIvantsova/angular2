@@ -1,0 +1,106 @@
+<div class="row">
+       <div class="col-md-3 md-margin-bottom-40">
+            <img class="img-responsive profile-img margin-bottom-20" [src]="foto" alt="Foto">
+            <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                <!--<li class="list-group-item">-->
+                    <!--<a href="#" [class.active]="isEditProfile === true">-->
+                        <!--<i class="fa fa-bar-chart-o"></i> Overall-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="list-group-item">-->
+                    <!--<a href="#"><i class="fa fa-cubes"></i> My Projects</a>-->
+                <!--</li>-->
+                <li class="list-group-item" [class.active]="isEditProfile === true">
+                    <a (click)="onEdit('general')"><i class="fa fa-cog"></i> Edit profile</a>
+                </li>
+            </ul>
+            <div class="panel panel-profile">
+                <div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Development Directions</h2>
+                    <a (click)="onEdit('directions')"><i class="fa fa-cog pull-right"></i></a>
+                </div>
+                <div *ngFor="let direction of directions" class="direction-wrap">
+                    <profile-direction [direction]="direction"></profile-direction>
+                </div>
+            </div>
+
+            <hr>
+
+            <profile-projects [projects]="projects" (onEdit)="onEdit($event)" *ngIf="projects"></profile-projects>
+
+            <hr>
+
+            <div class="margin-bottom-50"></div>
+
+        </div>
+        <!--End Left Sidebar-->
+        <!-- Profile Content -->
+        <div class="col-md-9">
+            <edit-profile-container *ngIf="isEditProfile" [employee]="employee" [categoryToEdit]="categoryToEdit"
+                (closeForm)="closeForm($event)" (saveChanges)="update($event)"></edit-profile-container>
+
+            <div *ngIf="!isEditProfile">
+                <!--<div class="profile-bio">-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-profile">
+                                <div class="panel-heading overflow-h">
+                                    <h1 class="panel-title heading-sm pull-left">{{name | uppercase}} {{surname | uppercase}}</h1>
+                                    <a (click)="onEdit('general')"><i class="fa fa-cog pull-right"></i></a>
+                                </div>
+                                <div class="panel-body">
+                                    <div><span><strong>Department:</strong> {{department | uppercase}}</span></div>
+                                    <div><span><strong>Position:</strong> {{position | capitalize}}</span></div>
+                                    <hr>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget massa nec turpis congu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!--</div>-->
+                <hr>
+                <div class="row">
+                    <!--Language Skills-->
+                    <div class="col-sm-6">
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> Language Skills</h2>
+                                <a (click)="onEdit('languages')"><i class="fa fa-cog pull-right"></i></a>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="languages" *ngFor="let language of languages">
+                                        <profile-language [language]="language"></profile-language>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Language Skills-->
+
+                    <!--Skills-->
+                    <div class="col-sm-6 sm-margin-bottom-30">
+                        <div class="panel panel-profile">
+                            <div class="panel-heading overflow-h">
+                                <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> Skills</h2>
+                                <a (click)="onEdit('tools')"><i class="fa fa-cog pull-right"></i></a>
+                            </div>
+                            <div class="panel-body">
+                                <div *ngFor="let tool of tools">
+                                    <profile-skill [tool]="tool"></profile-skill>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+
+                <profile-timeline *ngIf="works && educations" [works]="works" [educations]="educations"
+                    (onEdit)="onEdit($event)" ></profile-timeline>
+
+                <hr>
+
+            </div>
+        </div>
+</div>

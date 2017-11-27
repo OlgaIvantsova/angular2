@@ -1,0 +1,24 @@
+<div class="breadcrumbs breadcrumbs-light">
+    <div class="container">
+        <h1 class="pull-left">Search Results</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li><a [routerLink]="['/home']">{{key |capitalize}}</a></li>
+            <li class="active">{{value | capitalize}}</li>
+        </ul>
+    </div>
+</div>
+<div class="container content profile">
+         <div class="profile-body margin-bottom-20">
+
+                <div class="row margin-bottom-20">
+                    <div class="col-sm-6 sm-margin-bottom-20" *ngFor="let employee of employees | slice:0:amount">
+                        <employees-list-item [employee]="employee"></employees-list-item>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-u btn-u-default btn-block text-center"
+                    *ngIf="amount !== employees.length"
+                    (click)="loadMoreEmployees()">Load More</button>
+         </div>
+</div>

@@ -1,0 +1,52 @@
+//h1, h2, h3, h4, h5, h6 {
+//  color: #555;
+//  margin-top: 5px;
+//  text-shadow: none;
+//  font-weight: normal;
+//  font-family: "Open Sans", Arial, sans-serif;
+//}
+//h3 {
+//  font-size: 20px;
+//  line-height: 27px;
+//}
+.project {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.project .project-label {
+  background-color: rgba(114,192,44,0.8);
+}
+.project:nth-child(2) .project-label {
+  background-color: rgba(231,76,60,0.8);
+}
+.project:nth-child(3) .project-label {
+  background-color: rgba(52,152,219,0.8);;
+}
+.project:nth-child(4) .project-label {
+  background-color: rgba(155,107,204,0.8);
+}
+.list-inline > li {
+  padding-right: 0;
+}
+.high-rated .carousel-indicators {
+  top: 10px;
+  left: 65%;
+  text-align: right;
+}
+
+.high-rated .carousel-indicators .active {
+  background: #555;
+}
+
+.high-rated .carousel-indicators li {
+  border-color: #555;
+}
+
+.high-rated .carousel-inner > .item {
+  margin: 0;
+}
+
+.high-rated .star-vote {
+  float: right;
+  margin-top: 8px;
+}

@@ -1,0 +1,57 @@
+<!--<edit-profile-container *ngIf="isEditProfile" [employee]="employee"></edit-profile-container>-->
+<div class="profile-body" *ngIf="!isEditProfile">
+    <div class="profile-bio">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{name | capitalize}} {{surname | capitalize}}</h2>
+                <span><strong>Department:</strong> {{department | uppercase}}</span>
+                <span><strong>Position:</strong> {{position | capitalize}}</span>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget massa nec turpis congue bibendum. Integer nulla felis, porta suscipit nulla et, dignissim commodo nunc. Morbi a semper nulla.</p>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <!--Language Skills-->
+        <div class="col-sm-6">
+            <div class="panel panel-profile">
+                <div class="panel-heading overflow-h">
+                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-pencil"></i> Language Skills</h2>
+                    <a [routerLink]="['edit-profile']"><i class="fa fa-cog pull-right"></i></a>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="languages" *ngFor="let language of languages">
+                            <profile-language [language]="language"></profile-language>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Language Skills-->
+
+        <!--Skills-->
+        <div class="col-sm-6 sm-margin-bottom-30">
+            <div class="panel panel-profile">
+                <div class="panel-heading overflow-h">
+                    <h2 class="panel-title heading-sm pull-left"><i class="fa fa-lightbulb-o"></i> Skills</h2>
+                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                </div>
+                <div class="panel-body">
+                    <div *ngFor="let tool of tools">
+                        <profile-skill [tool]="tool"></profile-skill>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+
+    <profile-timeline [works]="works" [educations]="educations"></profile-timeline>
+
+    <hr>
+
+</div>

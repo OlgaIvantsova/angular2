@@ -1,0 +1,208 @@
+{ "departments": [
+  {
+    "title": "js/ui",
+    "id": 1
+  },
+  {
+    "title": "php",
+    "id": 2
+  },
+  {
+    "title": "java",
+    "id": 3
+  },
+  {
+    "title": "system administration",
+    "id": 4
+  }
+],
+  "projects": [
+    {
+      "title": "nodejs",
+      "id": 1,
+      "scope": "backend"
+    },
+    {
+      "title": "react",
+      "id": 2,
+      "scope": "frontend"
+    },
+    {
+      "title": "angular",
+      "id": 3,
+      "scope": "frontend"
+    },
+    {
+      "title": "jquery",
+      "id": 4,
+      "scope": "frontend"
+    }
+  ],
+  "projects": [
+    {
+        "title": "IT Managment",
+        "id": 1,
+        "startDate": "number",
+        "status": "closed",
+        "employeesAmount": 4,
+        "tools": ["angular", "jquery"],
+        "rate": 5,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo nisi, scelerisque at porttitor a, ultricies non risus. Quisque fringilla libero et tincidunt scelerisque. Donec eget tincidunt risus. Duis id scelerisque augue, id lobortis sem. Etiam non sollicitudin neque, eget tincidunt lorem. Sed at libero ac mauris finibus tincidunt eget."
+    },
+    {
+      "title": "Cargo delivery",
+      "id": 2,
+      "startDate": "1470027600000",
+      "status": "closed",
+      "employeesAmount": 4,
+      "tools": ["react", "nodejs"],
+      "rate": 5,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo nisi, scelerisque at porttitor a, ultricies non risus. Quisque fringilla libero et tincidunt scelerisque. Donec eget tincidunt risus. Duis id scelerisque augue, id lobortis sem. Etiam non sollicitudin neque, eget tincidunt lorem. Sed at libero ac mauris finibus tincidunt eget."
+    },
+    {
+      "title": "Shop online",
+      "id": 3,
+      "startDate": "1470027600000",
+      "status": "open",
+      "employeesAmount": 4,
+      "tools": ["jquery", "nodejs"],
+      "rate": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo nisi, scelerisque at porttitor a, ultricies non risus. Quisque fringilla libero et tincidunt scelerisque. Donec eget tincidunt risus. Duis id scelerisque augue, id lobortis sem. Etiam non sollicitudin neque, eget tincidunt lorem. Sed at libero ac mauris finibus tincidunt eget."
+    },
+    {
+      "title": "Shop online",
+      "id": 4,
+      "startDate": "1483246800000",
+      "status": "open",
+      "employeesAmount": 4,
+      "tools": ["jquery", "nodejs"],
+      "rate": 4,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo nisi, scelerisque at porttitor a, ultricies non risus. Quisque fringilla libero et tincidunt scelerisque. Donec eget tincidunt risus. Duis id scelerisque augue, id lobortis sem. Etiam non sollicitudin neque, eget tincidunt lorem. Sed at libero ac mauris finibus tincidunt eget."
+    },
+    {
+      "title": "Spa salon",
+      "id": 5,
+      "startDate": "1483246800000",
+      "status": "open",
+      "employeesAmount": 8,
+      "tools": ["jquery", "nodejs"],
+      "rate": 5,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo nisi, scelerisque at porttitor a, ultricies non risus. Quisque fringilla libero et tincidunt scelerisque. Donec eget tincidunt risus. Duis id scelerisque augue, id lobortis sem. Etiam non sollicitudin neque, eget tincidunt lorem. Sed at libero ac mauris finibus tincidunt eget."
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "departmentId": 1,
+      "name": "Ivan",
+      "surname": "Ivanov",
+      "languages": [{
+        "title": "english",
+        "level": "intermediate"
+      },
+        {
+          "title": "ukrainian",
+          "level": "advanced"
+        }],
+      "foto": "http://www.w3schools.com/bootstrap/cinqueterre.jpg",
+      "tools": [
+        {
+          "title": "react",
+          "level": "basic"
+        },
+        {
+          "title": "angular",
+          "level": "advanced"
+        },
+        {
+          "title": "jquery",
+          "level": "professional"
+        }],
+      "directions": [ "web development" ]
+    },
+    {
+      "id": 2,
+      "departmentId": 2,
+      "name": "Petro",
+      "surname": "Petrov",
+      "languages": [
+        {
+          "title": "english",
+          "level": "intermediate"
+        },
+        {
+          "title": "ukrainian",
+          "level": "advanced"
+        }
+      ],
+      "foto": "http://www.w3schools.com/bootstrap/cinqueterre.jpg",
+      "tools": [
+        {
+          "title": "jquery",
+          "level": "professional"
+        }
+      ],
+      "directions": [ "web design" ]
+    },
+    {
+      "id": 3,
+      "departmentId": 1,
+      "name": "Olga",
+      "surname": "Ivantsova",
+      "languages": [
+        {
+          "title": "english",
+          "level": "intermediate"
+        },
+        {
+          "title": "ukrainian",
+          "level": "advanced"
+        },
+        {
+          "title": "german",
+          "level": "elementary"
+        }
+      ],
+      "foto": "http://www.w3schools.com/bootstrap/cinqueterre.jpg",
+      "tools": [
+        {
+          "title": "nodejs",
+          "level": "basic"
+        },
+        {
+          "title": "angular",
+          "level": "advanced"
+        },
+        {
+          "title": "jquery",
+          "level": "professional"
+        }
+      ],
+      "directions": [ "web design", "web development" ]
+    },
+    {
+      "id": 4,
+      "departmentId": 4,
+      "name": "Misha",
+      "surname": "Mishkin",
+      "languages": [
+        {
+          "title": "ukrainian",
+          "level": "advanced"
+        },
+        {
+          "title": "russian",
+          "level": "advanced"
+        }
+      ],
+      "foto": "http://www.w3schools.com/bootstrap/cinqueterre.jpg",
+      "tools": [
+        {
+          "title": "mysql",
+          "level" : "advanced"
+        }
+      ],
+      "directions": [ "database design", "system architecture design", "administration" ]
+    }
+  ]
+}

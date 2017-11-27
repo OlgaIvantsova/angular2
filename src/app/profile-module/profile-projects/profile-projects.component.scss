@@ -1,0 +1,30 @@
+.mCustomScrollbar {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: auto;
+  padding-bottom: 15px;
+}
+.profile .panel-heading {
+  padding: 7px 0px;
+}
+.mCustomScrollbar .profile-post {
+  border-left: 2px solid #72c02c;
+}
+.mCustomScrollbar .profile-post:nth-child(2n) {
+  border-left: 2px solid #3498db;
+}
+.mCustomScrollbar .profile-post:nth-child(3n) {
+  border-left: 2px solid #e74c3c;
+}
+.mCustomScrollbar .profile-post:nth-child(4n) {
+  border-left: 2px solid #9b6bcc;
+}
+.mCustomScrollbar .profile-post:nth-child(5n) {
+  border-left: 2px solid #555;
+}
+.mCustomScrollbar .profile-post:nth-child(6n) {
+  border-left: 2px solid #f1c40f;
+}
+.mCustomScrollbar .profile-post:nth-child(7n) {
+  border-left: 2px solid #27d7e7;
+}

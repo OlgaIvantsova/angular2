@@ -1,0 +1,15 @@
+<div class="container s-results margin-bottom-50">
+    <span class="results-number" *ngIf="!employees.length">No match was found. Please try again</span>
+    <span class="results-number" *ngIf="employees.length">About {{employees.length}} results</span>
+    <!-- Begin Inner Results -->
+    <div *ngIf="filteredEmployees.length">
+        <div *ngFor="let employee of filteredEmployees">
+            <search-results-item [employee]="employee"></search-results-item>
+        </div>
+    </div>
+    <!-- End Inner Results -->
+    <div *ngIf="employees.length">
+        <profile-pagination [pageSize]="pageSize" [allItems]="employees.length"
+                            (pagedItems)="setFilteredEmployees($event)"></profile-pagination>
+    </div>
+</div>
